@@ -477,14 +477,6 @@ function render() {
   for (let x = left; x <= right; x += 8) ctx.lineTo(x, terrainH(x));
   ctx.lineTo(right, bottom); ctx.closePath();
   ctx.fillStyle = stage.dirt; ctx.fill();
-  // dirt stripes
-  ctx.save(); ctx.clip();
-  ctx.fillStyle = stage.dirt2;
-  for (let x = Math.floor(left / 120) * 120; x < right; x += 120) {
-    const y = terrainH(x);
-    ctx.beginPath(); ctx.arc(x + 40, y + 70, 14, 0, 7); ctx.arc(x + 95, y + 130, 9, 0, 7); ctx.fill();
-  }
-  ctx.restore();
   // grass
   ctx.beginPath();
   for (let x = left; x <= right; x += 8) ctx.lineTo(x, terrainH(x) + 4);
